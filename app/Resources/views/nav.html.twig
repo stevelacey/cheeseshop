@@ -1,0 +1,18 @@
+<nav id="nav" class="navbar navbar-default navbar-collapse collapse" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="{{ url('homepage') == app.request.uri or url('homepage') ~ '?' in app.request.uri ? 'active' }}">
+        <a href="{{ url('homepage') }}">Home</a>
+      </li>
+      <li class="{{ url('products') in app.request.uri ? 'active' }}">
+        <a href="{{ url('products') }}">Products</a>
+      </li>
+      <li class="{{ url('categories') in app.request.uri ? 'active' }}">
+        <a href="{{ url('categories') }}">Categories</a>
+      </li>
+      <li class="{{ url('contact') in app.request.uri ? 'active' }}">
+        <a href="{{ url('contact') }}">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>

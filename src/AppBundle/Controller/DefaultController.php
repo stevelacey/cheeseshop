@@ -8,10 +8,35 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/app/example", name="homepage")
+     * @Route("/", name="homepage")
      */
     public function indexAction()
     {
-        return $this->render('default/index.html.twig');
+        return $this->render('index.html.twig');
     }
+
+    /**
+     * @Route("/products", name="products")
+     */
+    public function productsAction()
+    {
+        return $this->render('products.html.twig');
+    }
+
+    /**
+     * @Route("/categories", name="categories")
+     */
+    public function categoriesAction()
+    {
+        return $this->render('categories.html.twig');
+    }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contactAction()
+    {
+        return $this->render('contact.html.twig');
+    }
+
 }
