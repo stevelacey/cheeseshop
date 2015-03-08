@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteBase /blog/
+
+    # Redirect wordpress dir
+    RewriteRule ^wordpress/?$ . [R=301,L]
+
+    # Redirect wp-admin to new admin location
+    RewriteRule ^admin wordpress/wp-admin [R=301,L]
+    RewriteRule ^wp-admin wordpress/wp-admin [R=301,L]
+
+    # Block the include-only files.
+    RewriteRule wordpress/wp-admin/includes/.*\.php - [F,L]
+    RewriteRule wordpress/wp-includes/.*\.php$ - [F,L]
+
+    # Block access to git
+    RewriteRule .*\.git - [F,L]
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !^/blog/wordpress
+    RewriteRule ^(.*)$ ../app.php [QSA,L]
+</IfModule>
