@@ -28,6 +28,33 @@ class BlogController extends Controller
 
         require_once(ABSPATH . WPINC . '/template-loader.php');
 
-        return new Response(ob_get_clean());
+        $output = ob_get_clean();
+
+        if (function_exists('is_feed') && is_feed()) {
+            $response = new Response($output);
+        } else {
+            preg_match(sprintf('|%s|msU', preg_replace('|\s+|', '', implode('\s*', explode(PHP_EOL, trim('
+                    <html[^>]*>
+                        <head>(.*)</head>
+                        <body[^>]*>
+                            (.*)
+                            <foot>(.*)</foot>
+                        </body>
+                    </html>
+                '))))),
+                $output,
+                $matches
+            );
+
+            list($document, $head, $content, $foot) = $matches;
+
+            $response = array(
+                'head' => $head,
+                'content' => $content,
+                'foot' => $foot
+            );
+        }
+
+        return $response;
     }
 }

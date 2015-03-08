@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{{ block('title') }} {% if block('title') %} &middot; {% endif %} Acme Cheese Shop</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="/application.css">
+        {% block head %}
+            <meta charset="UTF-8" />
+            <title>{{ block('title') }} {% if block('title') %} &middot; {% endif %} Acme Cheese Shop</title>
+            {% block stylesheets %}
+                <link rel="stylesheet" href="/application.css">
+            {% endblock %}
+            <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}
@@ -22,11 +24,13 @@
                 <main>
                     {% block main %}
                         <div class="container" style="min-height: 500px">
-                            <header class="page-header">
-                                {% block page_header %}
-                                    <h1>{{ block('title') }}</h1>
-                                {% endblock %}
-                            </header>
+                            {% if block('title') or block('page_header') %}
+                                <header class="page-header">
+                                    {% block page_header %}
+                                        <h1>{{ block('title') }}</h1>
+                                    {% endblock %}
+                                </header>
+                            {% endif %}
 
                             {{ block('content') }}
                         </div>
@@ -38,6 +42,9 @@
                 {{ include('footer.html.twig') }}
             {% endblock %}
         {% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        {% block foot %}
+            {% block javascripts %}{% endblock %}
+        {% endblock %}
     </body>
 </html>

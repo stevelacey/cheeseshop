@@ -1,0 +1,20 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block page_header %}{% endblock %}
+
+{% block head %}
+    {{ head | raw }}
+
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    {{ content | raw }}
+{% endblock %}
+
+{% block foot %}
+    {{ parent() }}
+
+    {{ foot | raw }}
+{% endblock %}
