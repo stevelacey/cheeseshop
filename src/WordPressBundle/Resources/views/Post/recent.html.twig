@@ -1,0 +1,23 @@
+<h2>
+    <a href="{{ path('blog') }}">
+        Recent posts
+    </a>
+</h2>
+
+{% for post in posts %}
+    <article>
+        <header>
+            <h3>
+                <a href="{{ post.permalink }}">
+                    {{- post.title -}}
+                </a>
+            </h3>
+        </header>
+
+        <p>{{ post.excerpt | raw }}</p>
+
+        <footer>
+            {{ post.date | date }}
+        </footer>
+    </article>
+{% endfor %}

@@ -5,5 +5,16 @@
 {% endblock %}
 
 {% block content %}
-    <img src="/images/chandler.jpg">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="/images/chandler.jpg" style="max-width: 100%;">
+        </div>
+
+        <div class="col-sm-6">
+            <esi:include src="http://cs/wp/recent"/>
+
+            {# ...or use the helpers #}
+            {# render_esi(url('blog_recent_posts')) #}
+        </div>
+    </div>
 {% endblock %}
