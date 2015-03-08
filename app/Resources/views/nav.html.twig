@@ -10,6 +10,9 @@
       <li class="{{ url('categories') in app.request.uri ? 'active' }}">
         <a href="{{ url('categories') }}">Categories</a>
       </li>
+      <li class="{{ url('blog') in app.request.uri ? 'active' }}">
+        <a href="{{ url('blog') }}">Blog</a>
+      </li>
       <li class="{{ url('contact') in app.request.uri ? 'active' }}">
         <a href="{{ url('contact') }}">Contact</a>
       </li>

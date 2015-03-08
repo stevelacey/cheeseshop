@@ -1,3 +1,7 @@
 app:
     resource: @AppBundle/Controller/
     type:     annotation
+
+wordpress:
+    resource: @WordPressBundle/Controller/
+    type:     annotation
