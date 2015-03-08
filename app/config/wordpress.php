@@ -36,6 +36,10 @@ define('DB_COLLATE', '');
 
 /** WordPress locations */
 define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/blog');
+define('WP_CONTENT_DIR', realpath(__DIR__ . '/../../web/blog/content'));
+define('WP_CONTENT_URL', WP_HOME . '/content');
+define('WP_PLUGIN_DIR', realpath(__DIR__ . '/../../src/WordPressBundle/Plugins'));
+define('WP_PLUGIN_URL', WP_CONTENT_URL .'/plugins');
 
 
 /**#@+
