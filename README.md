@@ -1,4 +1,5 @@
-ss
-==
+Cheeseshop
+==========
 
-A Symfony project created on March 7, 2015, 1:28 pm.
+Acme Cheese Shop Example – demonstrating how to mount a WordPress blog
+(or anything) inside a Symfony2 application
