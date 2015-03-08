@@ -13,6 +13,9 @@
       <li class="{{ url('blog') in app.request.uri ? 'active' }}">
         <a href="{{ url('blog') }}">Blog</a>
       </li>
+      <li class="{{ url('ghost') in app.request.uri ? 'active' }}">
+        <a href="{{ url('ghost') }}">Ghost</a>
+      </li>
       <li class="{{ url('contact') in app.request.uri ? 'active' }}">
         <a href="{{ url('contact') }}">Contact</a>
       </li>
