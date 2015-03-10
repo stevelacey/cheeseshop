@@ -21,7 +21,8 @@ class GhostController extends Controller
     public function indexAction(Request $request)
     {
         return array(
-            'uri' => 'http://127.0.0.1/' . str_replace('/spooky', '', $request->getRequestUri())
+            'uri' => 'http://blog.steve' . $request->getRequestUri()
+            // 'uri' => 'http://127.0.0.1/' . str_replace('/spooky', '', $request->getRequestUri())
         );
     }
 }
